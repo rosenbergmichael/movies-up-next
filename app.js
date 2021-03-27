@@ -26,6 +26,9 @@ class UI {
     ];
 
     const movies = storedMovies;
+
+    movies.forEach((movie) => UI.addMovieToList(movie));
+
   }
 }
 
