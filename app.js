@@ -12,6 +12,7 @@ class Movie {
 
 class UI {
   static displayMovies() {
+
     const storedMovies = [
       {
         movie: 'Sopranos Sequel',
@@ -26,10 +27,22 @@ class UI {
     ];
 
     const movies = storedMovies;
-
     movies.forEach((movie) => UI.addMovieToList(movie));
 
   }
+
+  static addMovieToList(movie) {
+    const list = document.querySelector('#movie-list');
+    const row = document.createElement('tr');
+
+    row.innerHTML = `
+      <td>${movie.movie}</td>
+      <td>${movie.date}</td>
+      <td>${movie.location}</td>
+      <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
+    `;
+  }
+
 }
 
 // Store Class: Handles Storage
