@@ -58,6 +58,8 @@ class UI {
     const container = document.querySelector('.container');
     const form = document.querySelector('#movie-form');
     container.insertBefore(div, form);
+    //vanish in 3 seconds
+    setTimeout(() => document.querySelector('.alert').remove(), 3000);
 
   }
 
