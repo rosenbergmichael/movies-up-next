@@ -51,6 +51,10 @@ class UI {
     }
   }
 
+  static showAlert(message, className) {
+    const div = 
+  }
+
   static clearFields() {
     document.querySelector('#moviet').value = '';
     document.querySelector('#date').value = '';
@@ -77,14 +81,19 @@ document.querySelector('#movie-form').addEventListener('submit', (e) => {
   const date = document.querySelector('#date').value;
   const location = document.querySelector('#location').value;
 
-  // instantiate movie
-  const movie = new Movie(moviet, date, location);
+  //Validate
+  if(moviet === '' || date === '' || location === '') {
+    alert('Please fill in all fields');
+  } else {
+    // instantiate movie
+    const movie = new Movie(moviet, date, location);
 
-  //add movie to UI
-  UI.addMovieToList(movie);
+    //add movie to UI
+    UI.addMovieToList(movie);
 
-  //clear fields
-  UI.clearFields();
+    //clear fields
+    UI.clearFields();
+  }
 
 });
 
