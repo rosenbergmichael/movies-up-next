@@ -1,8 +1,8 @@
 // Movie Class: Represents a Movie
 
 class Movie {
-  constructor(movie, date, location) {
-    this.movie = movie;
+  constructor(moviet, date, location) {
+    this.moviet = moviet;
     this.date = date;
     this.location = location;
   }
@@ -15,12 +15,12 @@ class UI {
 
     const storedMovies = [
       {
-        movie: 'Sopranos Sequel',
+        moviet: 'Sopranos Sequel',
         date: 'July 15 2021',
         location: 'HBO Max'
       },
       {
-        movie: 'Mortal Kombat',
+        moviet: 'Mortal Kombat',
         date: 'August 10 2021',
         location: 'In Theatres'
       }
@@ -36,7 +36,7 @@ class UI {
     const row = document.createElement('tr');
 
     row.innerHTML = `
-      <td>${movie.movie}</td>
+      <td>${movie.moviet}</td>
       <td>${movie.date}</td>
       <td>${movie.location}</td>
       <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
@@ -56,7 +56,14 @@ document.addEventListener('DOMContentLoaded', UI.displayMovies);
 // Event: Add a Movie
 
 document.querySelector('#movie-form').addEventListener('submit', (e) => {
-  
+  // get form values
+  const moviet = document.querySelector('#moviet').value;
+  const date = document.querySelector('#date').value;
+  const location = document.querySelector('#location').value;
+
+  // instantiate movie
+  const movie = 
+
 });
 
 // Event: Remove a Movie
