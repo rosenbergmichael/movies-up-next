@@ -118,6 +118,9 @@ document.querySelector('#movie-form').addEventListener('submit', (e) => {
     //add movie to UI
     UI.addMovieToList(movie);
 
+    //add movie to Store
+    Store.addMovie(movie);
+
     //show success message
     UI.showAlert('Movie Added', 'success');
 
@@ -129,7 +132,11 @@ document.querySelector('#movie-form').addEventListener('submit', (e) => {
 
 // Event: Remove a Movie
 document.querySelector('#movie-list').addEventListener('click', (e) => {
+  // remove movie from UI
   UI.deleteMovie(e.target)
+
+  //remove movie from store
+  Store.removeMovie(e.target.parentElement.previousElementSibling.textContent);
 
   //show success message
   UI.showAlert('Movie Removed', 'success');
