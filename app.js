@@ -12,21 +12,7 @@ class Movie {
 
 class UI {
   static displayMovies() {
-
-    const storedMovies = [
-      {
-        moviet: 'Sopranos Sequel',
-        date: 'July 15 2021',
-        location: 'HBO Max'
-      },
-      {
-        moviet: 'Mortal Kombat',
-        date: 'August 10 2021',
-        location: 'In Theatres'
-      }
-    ];
-
-    const movies = storedMovies;
+    const movies = Store.getMovies();
     movies.forEach((movie) => UI.addMovieToList(movie));
 
   }
