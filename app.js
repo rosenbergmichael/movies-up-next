@@ -86,11 +86,21 @@ class Store {
   }
 
   static addMovie(movie) {
+    const movies = Store.getMovies();
+    movies.push(movie);
 
+    localStorage.setItem('movies', JSON.stringify(movies));
   }
 
-  static removeMovie() {
+  static removeMovie(moviet) {
+    const movies = Store.getMovies();
+    movies.forEach((movie, index) => {
+      if(movie.moviet === moviet) {
+        movies.splice(index, 1);
+      }
+    });
 
+    localStorage.setItem('movies', JSON.stringify(movies));
   }
 
 
