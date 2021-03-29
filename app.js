@@ -52,7 +52,13 @@ class UI {
   }
 
   static showAlert(message, className) {
-    const div = 
+    const div = document.createElement('div');
+    div.className = `alert alert-${className}`;
+    div.appendChild(document.createTextNode(message));
+    const container = document.querySelector('.container');
+    const form = document.querySelector('#movie-form');
+    container.insertBefore(div, form);
+
   }
 
   static clearFields() {
