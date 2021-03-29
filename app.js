@@ -56,6 +56,9 @@ document.addEventListener('DOMContentLoaded', UI.displayMovies);
 // Event: Add a Movie
 
 document.querySelector('#movie-form').addEventListener('submit', (e) => {
+  //prevent actual submit
+  e.preventDefault();
+
   // get form values
   const moviet = document.querySelector('#moviet').value;
   const date = document.querySelector('#date').value;
@@ -63,6 +66,8 @@ document.querySelector('#movie-form').addEventListener('submit', (e) => {
 
   // instantiate movie
   const movie = new Movie(moviet, date, location);
+
+  console.log(movie);
 
 });
 
