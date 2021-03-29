@@ -55,4 +55,8 @@ document.addEventListener('DOMContentLoaded', UI.displayMovies);
 
 // Event: Add a Movie
 
+document.querySelector('#movie-form').addEventListener('submit', (e) => {
+  
+});
+
 // Event: Remove a Movie
