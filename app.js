@@ -75,7 +75,14 @@ class UI {
 
 class Store {
   static getMovies() {
+    let movies;
+    if(localStorage.getItem('movies') === null) {
+      movies = [];
+    } else {
+      movies = JSON.parse(localStorage.getItem('movies'));
+    }
 
+    return movies;
   }
 
   static addMovie(movie) {
