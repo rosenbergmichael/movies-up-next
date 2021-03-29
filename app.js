@@ -62,7 +62,7 @@ document.querySelector('#movie-form').addEventListener('submit', (e) => {
   const location = document.querySelector('#location').value;
 
   // instantiate movie
-  const movie = 
+  const movie = new Movie(moviet, date, location);
 
 });
 
