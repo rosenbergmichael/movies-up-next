@@ -89,7 +89,7 @@ document.querySelector('#movie-form').addEventListener('submit', (e) => {
 
   //Validate
   if(moviet === '' || date === '' || location === '') {
-    alert('Please fill in all fields');
+    UI.showAlert('Please fill in all fields', 'danger');
   } else {
     // instantiate movie
     const movie = new Movie(moviet, date, location);
