@@ -45,6 +45,12 @@ class UI {
     list.appendChild(row);
   }
 
+  static clearFields() {
+    document.querySelector('#moviet').value = '';
+    document.querySelector('#date').value = '';
+    document.querySelector('#location').value = '';
+  };
+
 }
 
 // Store Class: Handles Storage
@@ -69,6 +75,9 @@ document.querySelector('#movie-form').addEventListener('submit', (e) => {
 
   //add movie to UI
   UI.addMovieToList(movie);
+
+  //clear fields
+  UI.clearFields();
 
 });
 
