@@ -45,6 +45,12 @@ class UI {
     list.appendChild(row);
   }
 
+  static deleteMovie(el) {
+    if(el.classList.contains('delete')) {
+      el.parentElement.parentElement.remove();
+    }
+  }
+
   static clearFields() {
     document.querySelector('#moviet').value = '';
     document.querySelector('#date').value = '';
@@ -63,6 +69,7 @@ document.addEventListener('DOMContentLoaded', UI.displayMovies);
 
 document.querySelector('#movie-form').addEventListener('submit', (e) => {
   //prevent actual submit
+
   e.preventDefault();
 
   // get form values
@@ -82,3 +89,6 @@ document.querySelector('#movie-form').addEventListener('submit', (e) => {
 });
 
 // Event: Remove a Movie
+document.querySelector('#movie-list').addEventListener('click', (e) => {
+  UI.deleteMovie(e.target)
+});
