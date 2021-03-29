@@ -73,6 +73,22 @@ class UI {
 
 // Store Class: Handles Storage
 
+class Store {
+  static getMovies() {
+
+  }
+
+  static addMovie(movie) {
+
+  }
+
+  static removeMovie() {
+
+  }
+
+
+}
+
 // Event: Display Movies
 
 document.addEventListener('DOMContentLoaded', UI.displayMovies);
@@ -111,4 +127,7 @@ document.querySelector('#movie-form').addEventListener('submit', (e) => {
 // Event: Remove a Movie
 document.querySelector('#movie-list').addEventListener('click', (e) => {
   UI.deleteMovie(e.target)
+
+  //show success message
+  UI.showAlert('Movie Removed', 'success');
 });
