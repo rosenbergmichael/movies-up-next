@@ -67,7 +67,8 @@ document.querySelector('#movie-form').addEventListener('submit', (e) => {
   // instantiate movie
   const movie = new Movie(moviet, date, location);
 
-  console.log(movie);
+  //add movie to UI
+  UI.addMovieToList(movie);
 
 });
 
