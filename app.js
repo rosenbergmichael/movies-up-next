@@ -99,6 +99,9 @@ document.querySelector('#movie-form').addEventListener('submit', (e) => {
     //add movie to UI
     UI.addMovieToList(movie);
 
+    //show success message
+    UI.showAlert('Movie Added', 'success');
+
     //clear fields
     UI.clearFields();
   }
