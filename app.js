@@ -51,6 +51,8 @@ class UI {
 
 // Event: Display Movies
 
+document.addEventListener('DOMContentLoaded', UI.displayMovies);
+
 // Event: Add a Movie
 
 // Event: Remove a Movie
