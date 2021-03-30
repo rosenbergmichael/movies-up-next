@@ -7,7 +7,6 @@ class Movie {
 }
 
 
-
 class UI {
 
   static displayMovies() {
@@ -50,7 +49,6 @@ class UI {
   };
 
 }
-
 
 
 class Store {
