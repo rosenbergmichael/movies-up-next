@@ -1,5 +1,3 @@
-// Movie Class: Represents a Movie
-
 class Movie {
   constructor(moviet, date, location) {
     this.moviet = moviet;
@@ -8,26 +6,24 @@ class Movie {
   }
 }
 
-// UI Class: Handle UI Tasks
+
 
 class UI {
+
   static displayMovies() {
     const movies = Store.getMovies();
     movies.forEach((movie) => UI.addMovieToList(movie));
-
   }
 
   static addMovieToList(movie) {
     const list = document.querySelector('#movie-list');
     const row = document.createElement('tr');
-
     row.innerHTML = `
       <td>${movie.moviet}</td>
       <td>${movie.date}</td>
       <td>${movie.location}</td>
       <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
     `;
-
     list.appendChild(row);
   }
 
@@ -44,9 +40,7 @@ class UI {
     const container = document.querySelector('.container');
     const form = document.querySelector('#movie-form');
     container.insertBefore(div, form);
-    //vanish in 3 seconds
     setTimeout(() => document.querySelector('.alert').remove(), 3000);
-
   }
 
   static clearFields() {
@@ -57,9 +51,10 @@ class UI {
 
 }
 
-// Store Class: Handles Storage
+
 
 class Store {
+
   static getMovies() {
     let movies;
     if(localStorage.getItem('movies') === null) {
@@ -67,14 +62,12 @@ class Store {
     } else {
       movies = JSON.parse(localStorage.getItem('movies'));
     }
-
     return movies;
   }
 
   static addMovie(movie) {
     const movies = Store.getMovies();
     movies.push(movie);
-
     localStorage.setItem('movies', JSON.stringify(movies));
   }
 
@@ -85,59 +78,32 @@ class Store {
         movies.splice(index, 1);
       }
     });
-
     localStorage.setItem('movies', JSON.stringify(movies));
   }
 
-
 }
 
-// Event: Display Movies
 
 document.addEventListener('DOMContentLoaded', UI.displayMovies);
 
-// Event: Add a Movie
-
 document.querySelector('#movie-form').addEventListener('submit', (e) => {
-  //prevent actual submit
-
   e.preventDefault();
-
-  // get form values
   const moviet = document.querySelector('#moviet').value;
   const date = document.querySelector('#date').value;
   const location = document.querySelector('#location').value;
-
-  //Validate
   if(moviet === '' || date === '' || location === '') {
     UI.showAlert('Please fill in all fields', 'danger');
   } else {
-    // instantiate movie
     const movie = new Movie(moviet, date, location);
-
-    //add movie to UI
     UI.addMovieToList(movie);
-
-    //add movie to Store
     Store.addMovie(movie);
-
-    //show success message
     UI.showAlert('Movie Added', 'success');
-
-    //clear fields
     UI.clearFields();
   }
-
 });
 
-// Event: Remove a Movie
 document.querySelector('#movie-list').addEventListener('click', (e) => {
-  // remove movie from UI
   UI.deleteMovie(e.target)
-
-  //remove movie from store
   Store.removeMovie(e.target.parentElement.previousElementSibling.textContent);
-
-  //show success message
   UI.showAlert('Movie Removed', 'success');
 });
